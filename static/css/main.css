@@ -1,8 +1,12 @@
 body {
 
-  font-family: sans-serif;
+padding: 60px 0;
+  background: #ffffff;
 
-  background: #eee;
+}
+
+.footer {
+padding-top: 30px;
 
 }
 
@@ -139,10 +143,9 @@ label {
 
 
 .error {
+color: red;
+font-size: .8em;	
 
-  background: #F0D6D6;
-
-  padding: 0.5em;
 
 }
 

@@ -3,28 +3,44 @@
 
 <h1>Welcome to FlaskTaskr</h1>
 <br>
-<a href="{{ url_for ('logout') }}">Logout</a>
-
+<a href="/logout">Logout</a>
 
 <div class="add-task">
     <h3>Add a new task:</h3>
-   <form action="{{ url_for('new_task') }}" method="POST" class="inline-form">
+   <form action="{{ url_for('new_task') }}" method="POST">
        {{ form.csrf_token }}
-       <div class="input-group">
-           {{ form.name.label }}
-           {{ form.name }}
-       </div>
-       <div class="input-group">
-           {{ form.due_date.label }}
-           {{ form.due_date }}
-       </div>
-       <div class="input-group">
+       <p>
+           {{ form.name(placeholder="name") }}
+           <span class="error">
+               {% if form.name.errors %}
+               {% for error in form.name.errors %}
+               {{ error }}
+               {% endfor %}
+               {% endif %}
+           </span>
+       </p>
+        <p>
+           {{ form.due_date(placeholder="due date") }}
+           <span class="error">
+               {% if form.due_date.errors %}
+               {% for error in form.due_date.errors %}
+               {{ error }}
+               {% endfor %}
+               {% endif %}
+           </span>
+        </p>
+       <p>
            {{ form.priority.label }}
            {{ form.priority }}
-       </div>
-       <div class="input-group">
-           <button type="submit">Submit</button>
-       </div>
+           <span class="error">
+               {% if form.priority.errors %}
+               {% for error in form.priority.errors %}
+               {{ error }}
+               {% endfor %}
+               {% endif %}
+           </span>
+        </p>
+        <p><input class="btn btn-default" type="submit" value="Submit"></p>
    </form>
 </div>
 

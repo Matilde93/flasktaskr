@@ -3,9 +3,11 @@
 *.o
 *.class
 *.h
+*.coverage
 
 env
 venv
+htmlcov
 
 __pycache__
 
